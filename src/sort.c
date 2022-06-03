@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: felixbruggemann <felixbruggemann@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 09:22:33 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 18:57:31 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 23:14:56 by felixbrugge      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ t_list *sort_stack_radix(t_stack a);
 void sort_stack(t_stack *a, t_stack *b)
 {
 	t_list *basic;
-	t_list *radix;
-	
+	//t_list *radix;
 	basic = sort_stack_basic(*a,*b);
-	radix = sort_stack_radix(*a);
-	print_stack(*a);
+
+	//sort_stack_radix(stack_to_index(a));
+	ft_lstiter(basic,&ft_lstprintoperation);
 	//ft_lstiter(basic->next,&ft_lstprintoperation);
 }
 
@@ -42,7 +42,7 @@ t_list *sort_stack_basic(t_stack a, t_stack b)
 		max_number = a.numbers[a.index];
 		while (i < a.count)
 		{
-			if (a.numbers[a.index + i] < a.numbers[a.index + max_index])
+			if (a.numbers[a.index + i] < max_number)
 			{
 				max_index = i;
 				max_number = a.numbers[a.index + i];
@@ -66,7 +66,7 @@ t_list *sort_stack_basic(t_stack a, t_stack b)
 		}
 		else 
 		{
-			while (a.numbers[a.index + a.count -1] != max_number)
+			while (a.numbers[a.index + a.count -1 ] != max_number)
 			{
 				stack_rotate_reverse(&a);
 				ft_lstadd_back(&head, ft_create_operation("rra"));
@@ -75,35 +75,21 @@ t_list *sort_stack_basic(t_stack a, t_stack b)
 		
 
 		stack_push(&a,&b);
-			ft_lstadd_back(&head, ft_create_operation("pb"));
+		ft_lstadd_back(&head, ft_create_operation("pb"));
 	}
 	while (b.count > 0)
 	{
 		stack_push(&b,&a);
-			ft_lstadd_back(&head, ft_create_operation("pa"));
+		ft_lstadd_back(&head, ft_create_operation("pa"));
 	}
 	return (head);
 }
 
-t_list *sort_stack_radix(t_stack a)
-{
-	t_stack c;
-	c = a;
-
-	c.numbers = create_stack(c.length/3);
-	c.index = a.index;
-	c.length = a.length;
-	c.count = a.count;
-	
-	
-	
-	c.numbers[c.index] = 123123;
-
-	
-	print_stack(a);
-	print_stack(c);
-	return (NULL);
-}
+// t_list *sort_stack_radix(t_stack a)
+// {
+// 	t_stack *c = &a;
+// 	return (NULL);
+// }
 
 t_list *ft_create_operation(char *operation)
 {

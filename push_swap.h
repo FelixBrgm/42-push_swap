@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
+/*   By: felixbruggemann <felixbruggemann@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:31 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 18:23:29 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 22:44:33 by felixbrugge      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	free_stack(t_stack *stack);
 t_stack	*create_stack(int length);
 int		add_number(t_stack *stack, int number);
 void	stack_check(t_stack *stack);
+t_stack *stack_duplicate(t_stack *stack);
+t_stack *stack_to_index(t_stack *stack);
 
 // Sort
 void sort_stack(t_stack *a, t_stack *b);
