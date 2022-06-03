@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:54:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 09:21:26 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:38:39 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ int	add_number(t_stack *stack, int number)
 	if (stack->count == stack->length)
 		return (-1);	
 	stack_check(stack);
-	stack->numbers[stack->index + stack->count] = number;
+	stack->index--;
 	stack->count++;
+	stack->numbers[stack->index] = number;
 	return (0);
 }
 

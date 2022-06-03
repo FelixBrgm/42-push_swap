@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 16:02:09 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 10:43:38 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:29:40 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int stack_rotate(t_stack *stack)
 	if (!stack)
 		return (-1);
 	stack_check(stack);
-	stack->numbers[stack->index - 1] = stack->numbers[stack->index + stack->count -1];
 	stack->index--;
+	stack->numbers[stack->index] = stack->numbers[stack->index + stack->count];
 	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:31 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 10:10:54 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 18:23:29 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 	int count;
 }				t_stack;
 
-void print_stack(t_stack *stack);
+void print_stack(t_stack stack);
 
 int		check_input(char **argv);
 
