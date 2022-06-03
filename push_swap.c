@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:34 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 12:59:09 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 18:49:26 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int main(int argc, char **argv)
 	
 	a = init_stack(argv);
 	b = create_stack(ft_2ptrlen((void **) argv));
-
 	sort_stack(a, b);
 	return (0);
 }
