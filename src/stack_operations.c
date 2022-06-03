@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 16:02:09 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/05/22 16:49:49 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:43:38 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,17 @@ void stack_swap(t_stack *stack)
 
 int stack_push(t_stack *src, t_stack *dest)
 {
-	if (src->count <= 0 || dest->count <= 0)
+	if (src->count <= 0)
 		return (-1);	
 	stack_check(src);
 	stack_check(dest);
-	dest->index--;
+	dest->numbers[dest->index + dest->count] = src->numbers[src->index + src->count -1];
 	dest->count++;
-	dest->numbers[dest->index] = src->numbers[src->index];
-	src->index++;
 	src->count--;
 	return (0);
 }
 
-int stack_rotate(t_stack *stack)
+int stack_rotate_reverse(t_stack *stack)
 {
 	if (!stack)
 		return (-1);
@@ -46,7 +44,7 @@ int stack_rotate(t_stack *stack)
 	return (0);
 }
 
-int stack_rotate_reverse(t_stack *stack)
+int stack_rotate(t_stack *stack)
 {
 	if (!stack)
 		return (-1);

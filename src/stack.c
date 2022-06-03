@@ -6,11 +6,40 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:54:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/05/22 16:50:54 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/03 09:21:26 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+t_stack	*init_stack(char **arg)
+{
+	t_stack	*stack;
+	int		i;
+
+	if (!arg)
+		return (NULL);
+	stack = create_stack(ft_2ptrlen((void **) arg));
+	if (!stack)
+		return (NULL);
+	i = 1;
+	while (arg[i])
+	{
+		add_number(stack, ft_atoi(arg[i]));
+		i++;
+	}
+	return (stack);
+}
+
+void	free_stack(t_stack *stack)
+{
+	if (stack)
+	{
+		if (stack->numbers)
+			free(stack->numbers);
+		free(stack);
+	}
+}
 
 t_stack *create_stack(int length)
 {

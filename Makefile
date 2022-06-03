@@ -2,7 +2,7 @@ CC := cc
 CFLAGS := -Wall -Werror -Wextra
 AR := ar rcs
 
-CFILES := push_swap.c src/check_input.c src/stack.c src/stack_operations.c
+CFILES := push_swap.c src/check_input.c src/stack.c src/stack_operations.c src/utils.c src/sort.c
 OFILES := $(CFILES:.c=.o)
 
 LIBFT := includes/libft
