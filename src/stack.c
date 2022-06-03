@@ -6,7 +6,7 @@
 /*   By: felixbruggemann <felixbruggemann@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:54:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 22:55:43 by felixbrugge      ###   ########.fr       */
+/*   Updated: 2022/06/03 23:28:46 by felixbrugge      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,9 +131,9 @@ t_stack *stack_to_index(t_stack *stack)
 	int 	last_number;
 	int		current_number;
 	int		current_index;
+	int		is_set;
 
 	res = stack_duplicate(stack);
-	
 	i = 0;
 	j = 0;
 	while (i < stack->count)
@@ -145,7 +145,7 @@ t_stack *stack_to_index(t_stack *stack)
 		}
 		i++;
 	}
-	res->numbers[res->index + current_index] = j;
+	res->numbers[res->index + current_index] = j++;
 	last_number = current_number;
 	i = 0;
 	while (j <= stack->count)
@@ -153,17 +153,20 @@ t_stack *stack_to_index(t_stack *stack)
 		i = 0;
 		current_number = 2147483647;
 		current_index = 0;
+		is_set = 0;
 		while(i < stack->count)
 		{
 			if (stack->numbers[stack->index + i] > last_number && stack->numbers[stack->index + i] < current_number)
 			{
 				current_number = stack->numbers[stack->index + i];
 				current_index = i;
+				is_set = 1;
 			}
 			i++;
 		}
-		// printf("Current: I: %i | N: %i | J: %i\n",current_index, current_number, j);
-		res->numbers[res->index + current_index] = j;
+		//printf("Current: I: %i | N: %i | J: %i\n",current_index, current_number, j);
+		if (is_set)	
+			res->numbers[res->index + current_index] = j;
 		last_number = current_number;
 		j++;
 	}

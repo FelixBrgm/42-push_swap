@@ -6,7 +6,7 @@
 /*   By: felixbruggemann <felixbruggemann@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 09:22:33 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/03 23:14:56 by felixbrugge      ###   ########.fr       */
+/*   Updated: 2022/06/03 23:31:17 by felixbrugge      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void sort_stack(t_stack *a, t_stack *b)
 {
 	t_list *basic;
 	//t_list *radix;
-	basic = sort_stack_basic(*a,*b);
+	basic = sort_stack_basic(*stack_to_index(a),*b);
 
 	//sort_stack_radix(stack_to_index(a));
 	ft_lstiter(basic,&ft_lstprintoperation);
@@ -66,7 +66,7 @@ t_list *sort_stack_basic(t_stack a, t_stack b)
 		}
 		else 
 		{
-			while (a.numbers[a.index + a.count -1 ] != max_number)
+			while (a.numbers[a.index + a.count-1] != max_number)
 			{
 				stack_rotate_reverse(&a);
 				ft_lstadd_back(&head, ft_create_operation("rra"));
@@ -82,6 +82,7 @@ t_list *sort_stack_basic(t_stack a, t_stack b)
 		stack_push(&b,&a);
 		ft_lstadd_back(&head, ft_create_operation("pa"));
 	}
+	//print_stack(a);
 	return (head);
 }
 
