@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:39:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 10:09:15 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/04 15:57:11 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,20 @@ t_stack *stack_create_indexed(t_stack *stack)
 	}
 	return (res);
 }
+
+int stack_is_sorted(t_stack *stack)
+{
+	int i;
+
+	if (!stack || !stack->numbers)
+		return (0);	
+	i = 0;
+	while (i < stack->count -1)
+	{
+		if (stack->numbers[stack->index + i] < stack->numbers[stack->index + i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+

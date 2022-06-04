@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:31 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 11:25:45 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/04 15:57:33 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	stack_free(t_stack *stack);
 // stack_utils.c
 t_stack	*stack_duplicate(t_stack *stack);
 t_stack	*stack_create_indexed(t_stack *stack);
+int		stack_is_sorted(t_stack *stack);
 
 // stack_operations.c
 int stack_swap(t_stack *stack);
@@ -70,6 +71,7 @@ void	stack_rrr(t_stack *a, t_stack *b, t_list **head);
 // Sort
 t_list **stack_sort(t_stack *stack);
 t_list **sort_basic(t_stack *stack);
+t_list **sort_radix(t_stack *stack);
 
 /// REMOVE
 #include <stdio.h>
