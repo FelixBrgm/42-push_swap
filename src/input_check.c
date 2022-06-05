@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 09:24:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 10:46:16 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 12:47:28 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static int	check_numbers(char **argv);
 static int	check_if_int(char **argv);
 static int	check_duplicates(char **argv);
 
-
-int input_check(char **argv)
+int	input_check(char **argv)
 {
 	if (!argv)
 		return (-1);
@@ -74,9 +73,9 @@ static int	check_if_int(char **argv)
 
 static int	check_duplicates(char **argv)
 {
-	int i;
-	int x;
-	
+	int	i;
+	int	x;
+
 	i = 0;
 	x = 0;
 	while (argv[x])
@@ -84,7 +83,7 @@ static int	check_duplicates(char **argv)
 		i = 0;
 		while (argv[i])
 		{
-			if (i != x && !ft_strncmp(argv[i],argv[x],12))
+			if (i != x && !ft_strncmp(argv[i], argv[x], 12))
 				return (-1);
 			i++;
 		}

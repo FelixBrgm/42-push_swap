@@ -6,95 +6,108 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:39:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 10:46:43 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 13:08:39 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+typedef struct s_vars
+{
+	int		i;
+	int		j;
+	int		last_number;
+	int		current_number;
+	int		current_index;
+	int		is_set;
+}				t_vars;
+
+void	stack_create_index_helper(t_vars *vars, t_stack *stack, t_stack *res);
+
 t_stack	*stack_duplicate(t_stack *stack)
 {
-	t_stack *new;
+	t_stack	*new;
 	int		i;
-	
+
 	if (!stack || !stack->numbers)
 		return (NULL);
-	
 	i = 0;
 	new = NULL;
-	new = stack_create(stack->length/3);
+	new = stack_create(stack->length / 3);
 	if (!new)
 		return (NULL);
-	while(i < stack->count)
+	while (i < stack->count)
 	{
-		stack_add(new, stack->numbers[stack->index + stack->count -1 - i ]);
+		stack_add(new, stack->numbers[stack->index + stack->count -1 - i]);
 		i++;
 	}
 	return (new);
 }
 
-t_stack *stack_create_indexed(t_stack *stack)
+t_stack	*stack_create_indexed(t_stack *stack)
 {
-	t_stack *res;
-	int		i;
-	int		j;
-	int 	last_number;
-	int		current_number;
-	int		current_index;
-	int		is_set;
+	t_stack	*res;
+	t_vars	vars;
 
 	res = stack_duplicate(stack);
-	i = 0;
-	j = 0;
-	while (i < stack->count)
+	vars.i = 0;
+	vars.j = 0;
+	while (vars.i < stack->count)
 	{
-		if(current_number > stack->numbers[stack->index + i])
+		if (vars.current_number > stack->numbers[stack->index + vars.i])
 		{
-			current_number = stack->numbers[stack->index + i];
-			current_index = i;
+			vars.current_number = stack->numbers[stack->index + vars.i];
+			vars.current_index = vars.i;
 		}
-		i++;
+		vars.i++;
 	}
-	res->numbers[res->index + current_index] = j++;
-	last_number = current_number;
-	i = 0;
-	while (j <= stack->count)
-	{
-		i = 0;
-		current_number = 2147483647;
-		current_index = 0;
-		is_set = 0;
-		while(i < stack->count)
-		{
-			if (stack->numbers[stack->index + i] > last_number && stack->numbers[stack->index + i] < current_number)
-			{
-				current_number = stack->numbers[stack->index + i];
-				current_index = i;
-				is_set = 1;
-			}
-			i++;
-		}
-		//printf("Current: I: %i | N: %i | J: %i\n",current_index, current_number, j);
-		if (is_set)	
-			res->numbers[res->index + current_index] = j;
-		last_number = current_number;
-		j++;
-	}
+	res->numbers[res->index + vars.current_index] = vars.j++;
+	vars.last_number = vars.current_number;
+	vars.i = 0;
+	stack_create_index_helper(&vars, stack, res);
 	return (res);
 }
 
-int stack_is_sorted(t_stack *stack)
+int	stack_is_sorted(t_stack *stack)
 {
-	int i;
+	int	i;
 
 	if (!stack || !stack->numbers)
-		return (0);	
+		return (0);
 	i = 0;
 	while (i < stack->count -1)
 	{
-		if (stack->numbers[stack->index + i] < stack->numbers[stack->index + i + 1])
+		if (stack->numbers[stack->index + i]
+			< stack->numbers[stack->index + i + 1])
 			return (0);
 		i++;
 	}
 	return (1);
+}
+
+void	stack_create_index_helper(t_vars *vars, t_stack *stack, t_stack *res)
+{
+	while (vars->j <= stack->count)
+	{
+		vars->i = 0;
+		vars->current_number = 2147483647;
+		vars->current_index = 0;
+		vars->is_set = 0;
+		while (vars->i < stack->count)
+		{
+			if (stack->numbers[stack->index + vars->i] > vars->last_number
+				&& stack->numbers[stack->index + vars->i]
+				< vars->current_number)
+			{
+				vars->current_number = stack->numbers[stack->index + vars->i];
+				vars->current_index = vars->i;
+				vars->is_set = 1;
+			}
+			vars->i++;
+		}
+		if (vars->is_set)
+			res->numbers[res->index + vars->current_index] = vars->j;
+		vars->last_number = vars->current_number;
+		vars->j++;
+	}
 }

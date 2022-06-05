@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 10:10:28 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 11:05:50 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 12:32:44 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ void	operations_print_func(void *content)
 void	operations_print(t_list *head)
 {
 	if (head)
-		ft_lstiter(head,&operations_print_func);
+		ft_lstiter(head, &operations_print_func);
 }
-void operations_free(t_list *head)
+
+void	operations_free(t_list *head)
 {
-	t_list *temp;
-	
+	t_list	*temp;
+
 	while (head)
 	{
 		temp = head;

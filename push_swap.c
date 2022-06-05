@@ -6,24 +6,24 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:34 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 11:07:57 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 12:53:53 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {	
 	t_stack	*stack;
 	t_list	**head;
 
 	head = NULL;
 	if (argc <= 1)
-		return(-1);	
+		return (-1);
 	if (input_check(argv))
 	{
-		ft_putstr_fd("Error\n",1);
-		return(-1);
+		ft_putstr_fd("Error\n", 1);
+		return (-1);
 	}
 	stack = stack_create_argv(argv);
 	if (!stack)
@@ -39,4 +39,3 @@ int main(int argc, char **argv)
 	stack_free(stack);
 	return (0);
 }
-

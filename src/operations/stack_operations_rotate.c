@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 10:22:59 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 10:48:55 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 12:31:46 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 void	stack_ra(t_stack *stack, t_list **head)
 {
-	if(!stack_rotate(stack))
+	if (!stack_rotate(stack))
 		ft_lstadd_back(head, operation_create("ra"));
 }
 
 void	stack_rb(t_stack *stack, t_list **head)
 {
-	if(!stack_rotate(stack))
+	if (!stack_rotate(stack))
 		ft_lstadd_back(head, operation_create("rb"));
 }
 
 void	stack_rra(t_stack *stack, t_list **head)
 {
-	if(!stack_rotate_reverse(stack))
+	if (!stack_rotate_reverse(stack))
 		ft_lstadd_back(head, operation_create("rra"));
 }
 
 void	stack_rrb(t_stack *stack, t_list **head)
 {
-	if(!stack_rotate_reverse(stack))
+	if (!stack_rotate_reverse(stack))
 		ft_lstadd_back(head, operation_create("rrb"));
 }

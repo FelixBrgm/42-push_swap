@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:22:43 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 12:23:50 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 12:58:59 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ t_stack	*stack_create_argv(char **argv)
 void	stack_add(t_stack *stack, int number)
 {
 	if (!stack)
-		exit(-1);	
+		exit(-1);
 	if (stack->count >= stack->length)
-		exit (-1);	
+		exit (-1);
 	stack_check(stack);
 	stack->index--;
 	stack->count++;
@@ -68,27 +68,11 @@ void	stack_check(t_stack *stack)
 {
 	int	i;
 	int	temp;
-	int diff;
-	
+	int	diff;
+
 	if (!stack || !stack->numbers)
 		exit (-1);
-	
-	if (stack->index <= 0)
-	{
-		i = (stack->length - stack->count) / 2;
-		diff = stack->index;
-		stack->index = i;
-		diff = diff - stack->index;
-		temp = stack->count;
-		while (temp)
-		{
-			stack->numbers[i] = stack->numbers[i + diff];
-			temp--;
-			i++;
-		}
-		
-	}
-	if (stack->index + stack->count >= stack->length)
+	if (stack->index <= 0 || stack->index + stack->count >= stack->length)
 	{
 		i = (stack->length - stack->count) / 2;
 		diff = stack->index;
