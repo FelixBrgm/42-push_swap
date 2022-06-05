@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 09:24:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 12:47:28 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:52:03 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	input_check(char **argv)
 {
 	if (!argv)
 		return (-1);
-	argv++;
 	if (check_numbers(argv))
 		return (-1);
 	if (check_if_int(argv))
