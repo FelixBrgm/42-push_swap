@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:31 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 17:41:21 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 08:48:51 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ t_list **stack_sort(t_stack *stack);
 t_list **sort_basic(t_stack *stack);
 t_list **sort_radix(t_stack *stack);
 t_list **sort_3(t_stack *stack);
+
+// Clean
+void stack_clean_lst(t_list **head);
 
 /// REMOVE
 #include <stdio.h>

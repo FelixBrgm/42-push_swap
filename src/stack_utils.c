@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:39:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 18:16:25 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 08:48:02 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,3 @@ int stack_is_sorted(t_stack *stack)
 	}
 	return (1);
 }
-

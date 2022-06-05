@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:55:21 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 18:37:17 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 08:48:20 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ t_list **sort_radix(t_stack *stack)
 	while (!stack_is_sorted(a) && digit < 16)
 	{
 		i = 0;
-		while (i < a->count)
+		while (i < a->count )
 		{
+			// Special case
+			if (b->count == 0 && stack_is_sorted(a))
+				return (head);
 			if (sort_get_nth_bit(a->numbers[a->index + a->count - 1],digit) == 0)
 			{
 				stack_pb(a,b,head);

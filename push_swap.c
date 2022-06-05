@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:34 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 18:19:06 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 09:26:46 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 	head = stack_sort(stack);
 	if (head)
 	{
+		stack_clean_lst(head);
 		operations_print(*head);
 		stack_free(stack);
 		ft_lstdelone(*head, (void (*)(void *))&del_operation);
