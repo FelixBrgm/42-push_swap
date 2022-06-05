@@ -1,5 +1,5 @@
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -MMD -MP
 AR := ar rcs
 
 CFILES := push_swap.c src/input_check.c src/stack.c src/stack_utils.c \
@@ -18,14 +18,17 @@ all: $(NAME)
 
 $(NAME): $(OFILES)
 	make -C $(LIBFT)
-	gcc $(CFLAGS) $(OFILES)  -o push_swap -L $(LIBFT) -l ft
+	gcc $(CFLAGS) $(OFILES) -o $(NAME) -L $(LIBFT) -l ft
 
 clean: 
 	make clean -C $(LIBFT)
 	rm -f $(OFILES)
+	rm -f $(OFILES:.o=.d)
 
 fclean: clean
 	make fclean -C $(LIBFT)
 	rm -f $(NAME)
 
 re: fclean all
+
+-include $(OFILES:.o=.d)
