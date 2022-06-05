@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:54:06 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/03/31 14:09:23 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 09:47:39 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	del(lst->content);
+	// if (lst)
+		del(lst->content);
 	free(lst);
 }

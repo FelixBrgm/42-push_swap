@@ -20,7 +20,7 @@ $(NAME): $(OFILES)
 	make -C $(LIBFT)
 	cp $(LIBFT)/libft.a $(NAME)
 	$(AR) $(NAME) $(OFILES)
-	gcc $(CFLAGS) $(NAME)  -o push_swap
+	gcc $(CFLAGS) $(NAME) -fsanitize=address -o push_swap
 
 clean: 
 	make clean -C $(LIBFT)

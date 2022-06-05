@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:55:21 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 18:23:51 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 10:25:55 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,28 @@ t_list **sort_3(t_stack *stack)
 	int b;
 	int c;
 	
-	temp = stack_create_indexed(stack);
-	if (temp->count != 3)
+	if (stack->count != 3)
 		return (NULL);
+	temp = stack_create_indexed(stack);
 	head = ft_calloc(1, sizeof(t_list *));
 	
 	a = temp->numbers[temp->index + 2];
 	b = temp->numbers[temp->index + 1];
 	c = temp->numbers[temp->index];
 	
-	if (a == 1 && b == 3 && c == 2)
+	if ( b == a + 2 && c ==  a + 1)
 	{
 		stack_ra(temp, head);
 		stack_sa(temp, head);
 		stack_rra(temp, head);
 	}
-	else if (a == 2 && b == 1 && c == 3)
+	else if (a == b + 1 && c == b + 2)
 		stack_sa(temp,head);
-	else if (a == 2 && b == 3 && c == 1)
+	else if (a == c + 1 && b == c + 2)
 		stack_rra(temp,head);
-	else if (a == 3 && b == 1 && c == 2)
+	else if (a == b + 2 && c == b + 1)
 		stack_ra(temp,head);
-	else if (a == 3 && b == 2 && c == 1)
+	else if (a == c + 2 && b == c + 1)
 	{
 		stack_ra(temp,head);
 		stack_sa(temp,head);		
