@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:55:21 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 18:28:17 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:29:28 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ t_list	**sort_radix(t_stack *stack)
 	b = stack_create(stack->length / 3);
 	digit = 0;
 	while (!stack_is_sorted(a) && digit < 16)
-	{
 		sort_radix_helper(a, b, head, &digit);
-	}
 	stack_free(a);
 	stack_free(b);
 	return (head);
