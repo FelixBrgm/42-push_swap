@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:22:43 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 12:58:59 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:32:52 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*stack_create_argv(char **argv)
 	stack = stack_create(ft_2ptrlen((void **) argv));
 	if (!stack)
 		return (NULL);
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		stack_add(stack, ft_atoi(argv[i]));

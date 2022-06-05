@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:34 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 12:53:53 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:33:07 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 1);
 		return (-1);
 	}
+	argv++;
 	stack = stack_create_argv(argv);
 	if (!stack)
 		return (-1);
