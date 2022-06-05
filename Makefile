@@ -12,15 +12,13 @@ OFILES := $(CFILES:.c=.o)
 
 LIBFT := includes/libft
 
-NAME = push_swap.a
+NAME = push_swap
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	make -C $(LIBFT)
-	cp $(LIBFT)/libft.a $(NAME)
-	$(AR) $(NAME) $(OFILES)
-	gcc $(CFLAGS) $(NAME)  -o push_swap
+	gcc $(CFLAGS) $(OFILES)  -o push_swap -L $(LIBFT) -l ft
 
 clean: 
 	make clean -C $(LIBFT)
