@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:22:43 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 09:35:13 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 12:23:50 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_stack	*stack_create(int length)
 	stack->index = length * 2;
 	stack->length = length * 3;
 	stack->count = 0;
-	
 	return (stack);
 }
 

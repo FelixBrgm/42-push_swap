@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:31 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 08:48:51 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 11:05:46 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int stack_rotate_reverse(t_stack *stack);
 t_list	*operation_create(char *operation);
 void	operations_print_func(void *content);
 void	operations_print(t_list *head);
+void	operations_free(t_list *head);
 
 // stack_operations_swap_push.c
 void	stack_sa(t_stack *stack, t_list **head);
@@ -77,8 +78,4 @@ t_list **sort_3(t_stack *stack);
 // Clean
 void stack_clean_lst(t_list **head);
 
-/// REMOVE
-#include <stdio.h>
-void stack_print(t_stack *stack);
-/// REMOVE
 #endif

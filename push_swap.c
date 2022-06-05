@@ -6,24 +6,11 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:34 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 10:44:57 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 11:07:57 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void operations_free(t_list *head)
-{
-	t_list *temp;
-	
-	while (head)
-	{
-		temp = head;
-		head = head->next;
-		free(temp->content);
-		free(temp);
-	}
-}
 
 int main(int argc, char **argv)
 {	
@@ -47,6 +34,7 @@ int main(int argc, char **argv)
 		stack_clean_lst(head);
 		operations_print(*head);
 		operations_free(*head);
+		free(head);
 	}
 	stack_free(stack);
 	return (0);

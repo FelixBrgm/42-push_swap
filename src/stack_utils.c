@@ -6,29 +6,11 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:39:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 08:48:02 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 10:46:43 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-/// REMOVE
-void	stack_print(t_stack *stack)
-{
-	int i = 0;
-
-	printf("| ");
-	while (i < stack->length)
-	{
-		if (i < stack->index || i >= stack->index + stack->count)
-			printf("   ");
-		else
-			printf("%i, ",stack->numbers[i]);
-		i++;
-	}
-	printf("|\n");
-}
-//// REMOVE
 
 t_stack	*stack_duplicate(t_stack *stack)
 {
