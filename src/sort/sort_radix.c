@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:55:21 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 16:28:09 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/04 18:37:17 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ t_list **sort_radix(t_stack *stack)
 	t_list **head = NULL;
 	t_stack *a;
 	t_stack *b;
-	t_stack *temp;
 	int		i;
 	int		digit;
 
 	head = ft_calloc(1, sizeof(t_list*));
-	temp = stack_duplicate(stack);
-	b = stack_create(stack->length);
-	a = stack_create_indexed(temp);
-	stack_free(temp);
+	a = stack_create_indexed(stack);
+	b = stack_create(stack->length/3);
 	
 	digit = 0;
 	
@@ -37,10 +34,6 @@ t_list **sort_radix(t_stack *stack)
 		i = 0;
 		while (i < a->count)
 		{
-			// printf("N: %i | D: %i | B: %i\n",a->numbers[a->index + a->count - 1],digit,sort_get_nth_bit(a->numbers[a->index + a->count - 1],digit));
-			// stack_print(a);
-			// stack_print(b);
-			// printf("\n\n");
 			if (sort_get_nth_bit(a->numbers[a->index + a->count - 1],digit) == 0)
 			{
 				stack_pb(a,b,head);

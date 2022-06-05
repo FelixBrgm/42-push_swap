@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 10:47:33 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 15:35:22 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/04 18:24:00 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,23 @@
 
 t_list **stack_sort(t_stack *stack)
 {
-	// TODO: heck if sortet and for 2 3 4 5 a seperate algorytm
+	t_list **head_min;
+	t_list **head_basic;
 	t_list **head_radix;
+	t_list **head_3;
 
+	head_min = NULL;
+	if (stack_is_sorted(stack))
+		return (head_min);
+
+	head_basic = sort_basic(stack);
+	if (head_basic)
+		head_min = head_basic;
 	head_radix = sort_radix(stack);
-	return (head_radix);
+	if (head_radix && ft_lstsize(*head_min) > ft_lstsize(*head_radix))
+		head_min = head_radix;
+	head_3 = sort_3(stack);
+	if (head_3 && ft_lstsize(*head_min) > ft_lstsize(*head_3))
+		head_min = head_3;
+	return (head_min);
 }

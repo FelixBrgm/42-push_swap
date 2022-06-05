@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:23:34 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/04 16:28:12 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/04 18:19:06 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ int main(int argc, char **argv)
 		ft_putstr_fd("Error\n",1);
 		return(-1);
 	}
-
+	head = NULL;
 	stack = stack_create_argv(argv);
 	head = stack_sort(stack);
-	operations_print(*head);
-
-	stack_free(stack);
-	if (!head)
+	if (head)
+	{
+		operations_print(*head);
+		stack_free(stack);
 		ft_lstdelone(*head, (void (*)(void *))&del_operation);
+	}
+	
 	return (0);
 }
 
