@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 09:41:44 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 19:59:32 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 22:14:53 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 char	*get_next_line(int fd);
 char	*get_line(char *mem);

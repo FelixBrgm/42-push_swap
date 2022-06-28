@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:46:16 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 20:59:57 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 21:54:36 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	stack_swap(t_stack *stack)
 		return (-1);
 	stack_check(stack);
 	temp = stack->numbers[stack->index + stack->count - 2];
-	stack->numbers[stack->index + stack->count - 2] = stack->numbers[stack->index + stack->count - 1];
+	stack->numbers[stack->index + stack->count - 2]
+		= stack->numbers[stack->index + stack->count - 1];
 	stack->numbers[stack->index + stack->count - 1] = temp;
 	return (0);
 }

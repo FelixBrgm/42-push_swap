@@ -6,7 +6,7 @@
 /*   By: fbruggem <fbruggem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 09:24:48 by fbruggem          #+#    #+#             */
-/*   Updated: 2022/06/05 18:52:03 by fbruggem         ###   ########.fr       */
+/*   Updated: 2022/06/05 22:20:02 by fbruggem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 static int	check_numbers(char **argv);
 static int	check_if_int(char **argv);
 static int	check_duplicates(char **argv);
+static int	check_blanks(char **argv);
 
 int	input_check(char **argv)
 {
 	if (!argv)
+		return (-1);
+	if (check_blanks(argv))
 		return (-1);
 	if (check_numbers(argv))
 		return (-1);
@@ -26,6 +29,20 @@ int	input_check(char **argv)
 		return (-1);
 	if (check_duplicates(argv))
 		return (-1);
+	return (0);
+}
+
+static int	check_blanks(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i][0] == '\0')
+			return (-1);
+		i++;
+	}
 	return (0);
 }
 
@@ -72,21 +89,25 @@ static int	check_if_int(char **argv)
 
 static int	check_duplicates(char **argv)
 {
-	int	i;
-	int	x;
+	int		i;
+	int		x;
+	t_stack	*stack;
 
+	stack = stack_create_argv(argv);
 	i = 0;
 	x = 0;
-	while (argv[x])
+	while (x < stack->count)
 	{
 		i = 0;
-		while (argv[i])
+		while (i < stack->count)
 		{
-			if (i != x && !ft_strncmp(argv[i], argv[x], 12))
+			if (i != x && stack->numbers[stack->index + x]
+				== stack->numbers[stack->index + i])
 				return (-1);
 			i++;
 		}
 		x++;
 	}
+	stack_free(stack);
 	return (0);
 }
